@@ -20,6 +20,7 @@ Obstacle& Voiture::getObstacle()
 // -1 = droite à gauche
 void Voiture::deplacer(int sens)
 {
-    getObstacle().getEntiteGraphique().scale(sens,1);
-    getObstacle().getEntiteGraphique().move(1*type+1,1);
+    //getObstacle().getEntiteGraphique().scale(sens,1);
+
+    getObstacle().getEntiteGraphique().move((1*type+1)*sens,0);
 }

@@ -10,11 +10,16 @@ class Obstacle
     private:
         RectangleShape formeObstacle;
         Texture textureObstacle;
+        bool right;
 
     public:
         Obstacle(int type);
         virtual ~Obstacle();
         RectangleShape& getEntiteGraphique();
+        void setRight(bool b);
+        bool isRight();
+
+
 
 };
 

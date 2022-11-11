@@ -9,9 +9,6 @@ using namespace std;
 
 int main()
 {
-
-
-
     Rendu r;
 
     r.afficherJeu();

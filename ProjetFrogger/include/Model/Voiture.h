@@ -13,9 +13,8 @@ class Voiture
         int type;
         Obstacle* obstacle;
 
-
     public:
-        Voiture(int type=rand()%3);
+        Voiture(int type=rand()%2+1);
         virtual ~Voiture();
         Obstacle& getObstacle();
         void deplacer(int sens);
