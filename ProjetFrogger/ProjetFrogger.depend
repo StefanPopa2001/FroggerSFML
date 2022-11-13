@@ -1806,24 +1806,25 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1668170275 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\model\joueur.h
+1668350823 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\model\joueur.h
 	<string>
 	<View/Avatar.h>
 
 1668170275 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\avatar.h
 	<SFML/Graphics.hpp>
 
-1668170275 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\plateau.h
+1668351503 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\plateau.h
 	<SFML/Graphics.hpp>
 
-1668176140 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\rendu.h
+1668351184 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\rendu.h
 	<vector>
 	"Model/Voiture.h"
 	"Model/Joueur.h"
 	"View/Plateau.h"
+	"View/Life.h"
 	<SFML/Graphics.hpp>
 
-1668170275 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\model\joueur.cpp
+1668350839 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\model\joueur.cpp
 	"Model/Joueur.h"
 	<SFML/Graphics.hpp>
 
@@ -1847,13 +1848,20 @@
 	"View/Obstacle.h"
 	<string>
 
-1668170275 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\view\plateau.cpp
+1668351512 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\view\plateau.cpp
 	"View/Plateau.h"
 
-1668178881 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\view\rendu.cpp
+1668350518 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\view\rendu.cpp
 	"View/Rendu.h"
 	"View/Plateau.h"
 	"Model/Joueur.h"
 	"Model/Voiture.h"
+	"View/Life.h"
 	<iostream>
+
+1668350106 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\view\life.cpp
+	"Life.h"
+
+1668350649 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\life.h
+	<SFML/Graphics.hpp>
 

@@ -15,6 +15,7 @@
 				<Compiler>
 					<Add option="-g" />
 					<Add directory="include" />
+					<Add directory="include/View" />
 				</Compiler>
 				<ResourceCompiler>
 					<Add directory="SFML-2.5.1/bin" />
@@ -33,6 +34,7 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add directory="include" />
+					<Add directory="include/View" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -58,6 +60,7 @@
 		<Unit filename="include/Model/Joueur.h" />
 		<Unit filename="include/Model/Voiture.h" />
 		<Unit filename="include/View/Avatar.h" />
+		<Unit filename="include/View/Life.h" />
 		<Unit filename="include/View/Obstacle.h" />
 		<Unit filename="include/View/Plateau.h" />
 		<Unit filename="include/View/Rendu.h" />
@@ -65,6 +68,7 @@
 		<Unit filename="src/Model/Joueur.cpp" />
 		<Unit filename="src/Model/Voiture.cpp" />
 		<Unit filename="src/View/Avatar.cpp" />
+		<Unit filename="src/View/Life.cpp" />
 		<Unit filename="src/View/Obstacle.cpp" />
 		<Unit filename="src/View/Plateau.cpp" />
 		<Unit filename="src/View/Rendu.cpp" />

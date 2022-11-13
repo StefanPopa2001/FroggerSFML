@@ -28,3 +28,13 @@ Avatar* Joueur::getAvatar()
 {
     return avatar;
 }
+
+int Joueur::getVie()const
+{
+    return vie;
+}
+
+void Joueur::looseLife()
+{
+    vie--;
+}

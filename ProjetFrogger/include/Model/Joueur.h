@@ -20,6 +20,8 @@ class Joueur
         void augmenterScore(int score);
         string str();
         Avatar* getAvatar();
+        int getVie()const;
+        void looseLife();
 
 
 };

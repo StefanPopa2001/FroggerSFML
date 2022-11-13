@@ -5,6 +5,7 @@
 #include "Model/Voiture.h"
 #include "Model/Joueur.h"
 #include "View/Plateau.h"
+#include "View/Life.h"
 
 #include <SFML/Graphics.hpp>
 
@@ -15,6 +16,7 @@ class Rendu
     private:
         vector<Voiture*> voitures;
         Joueur* joueur;
+        vector<Life*> lifes;
 
         Voiture v;
         Plateau plateau;

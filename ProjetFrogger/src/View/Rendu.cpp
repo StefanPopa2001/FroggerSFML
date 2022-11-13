@@ -2,11 +2,26 @@
 #include "View/Plateau.h"
 #include "Model/Joueur.h"
 #include "Model/Voiture.h"
+#include "View/Life.h"
+
 #include <iostream>
 
 Rendu::Rendu()
 {
+
     joueur = new Joueur;
+
+    for (int i=0;i<joueur->getVie();i++)
+    {
+        lifes.push_back(new Life);
+    }
+
+    for (Life* life:lifes)
+    {
+        life->getShape().setPosition(Life::firstX,0.f);
+
+        Life::firstX +=50;
+    }
 
     //placement voiture vecteur
     for (int i=0; i<12;i++)
@@ -27,10 +42,7 @@ Rendu::Rendu()
             v->getObstacle().getEntiteGraphique().scale(-1,1);
             v->getObstacle().setRight(true);
         }
-
-
         Rendu::compteurPosY +=50;
-
         if (Rendu::compteurPosY==350 || Rendu::compteurPosY==650)
         {
             Rendu::compteurPosY+=50;
@@ -75,34 +87,33 @@ int Rendu::afficherJeu()
                 joueur->getAvatar()->deplacerAvatar(event);
             }
         }
-
         // Clear screen
         app.clear();
 
         // Draw the sprite
         app.draw(plateau.getEntiteGraphique());
 
-//        app.draw(v.getObstacle().getEntiteGraphique());
-//        app.draw(v1.getObstacle().getEntiteGraphique());
-
-
-
+        for (Life* life:lifes)
+        {
+            app.draw(life->getShape());
+        }
         app.draw(joueur->getAvatar()->getEntiteGraphique());
 
         int i =0;
         for(Voiture* v: voitures)
         {
-
             FloatRect VoitureBounds = v->getObstacle().getEntiteGraphique().getGlobalBounds();
             FloatRect JoueurBounds = joueur->getAvatar()->getEntiteGraphique().getGlobalBounds();
 
             if(JoueurBounds.intersects(VoitureBounds))
             {
                 joueur->getAvatar()->mettreAvatarPositionDepart();
-                //vies--;
-                //std::cout<<std::to_string(vies)<<std::endl;
-                //window.clear();
-
+                joueur->looseLife();
+                lifes.pop_back();
+                if (joueur->getVie() == 0)
+                {
+                    plateau.setLose(true);
+                }
             }
 
             app.draw(v->getObstacle().getEntiteGraphique());
