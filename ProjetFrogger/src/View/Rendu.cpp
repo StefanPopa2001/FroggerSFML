@@ -9,13 +9,16 @@
 Rendu::Rendu()
 {
 
+    //creation du joueur
     joueur = new Joueur;
 
+
+    //placement des vies dans le vecteur en fonction du nombre de vie du joueur
     for (int i=0;i<joueur->getVie();i++)
     {
         lifes.push_back(new Life);
     }
-
+    //placement graphique des vies
     for (Life* life:lifes)
     {
         life->getShape().setPosition(Life::firstX,0.f);
@@ -23,11 +26,25 @@ Rendu::Rendu()
         Life::firstX +=50;
     }
 
+    //placement des bieres dans le vecteur
+    for (int i=0;i< 2;i++)
+    {
+        beers.push_back(new Beer);
+    }
+
+    //placement biere graphique
+    for (Beer* beer:beers)
+    {
+        beer->getShape().setPosition(0,0);
+        beer->getShape().setPosition((rand()%14)*50,150+((rand())%12)*50);
+    }
+
     //placement voiture vecteur
     for (int i=0; i<12;i++)
     {
         voitures.push_back(new Voiture);
     }
+    //le %2 permet de changer la direction d'une voiture sur 2
     int i=0;
     for(Voiture* v: voitures)
     {
@@ -90,6 +107,13 @@ int Rendu::afficherJeu()
         // Clear screen
         app.clear();
 
+        Text score;
+        score.setString("hello world");
+        score.setCharacterSize(50);
+        score.setFillColor(Color::Cyan);
+        score.setPosition(300.f, 850.f);
+        app.draw(score);
+
         // Draw the sprite
         app.draw(plateau.getEntiteGraphique());
 
@@ -97,9 +121,21 @@ int Rendu::afficherJeu()
         {
             app.draw(life->getShape());
         }
+
+
+
+
+        for (Beer* beer:beers)
+        {
+            app.draw(beer->getShape());
+        }
+
         app.draw(joueur->getAvatar()->getEntiteGraphique());
 
         int i =0;
+
+        //permet de verifier si il y a collision entre le joueur et n'importe qu'elle voiture du jeu
+        //si il y a collision on decremente la vie
         for(Voiture* v: voitures)
         {
             FloatRect VoitureBounds = v->getObstacle().getEntiteGraphique().getGlobalBounds();
@@ -116,6 +152,8 @@ int Rendu::afficherJeu()
                 }
             }
 
+            //on regarde si la voiture a commencé a droite ou a gauche de l'ecran,
+            //ensuite on genere un random entre 0 et 1 pour savoir si elle va repartir a gauche ou a droite
             app.draw(v->getObstacle().getEntiteGraphique());
             if (!(v->getObstacle().isRight()))
             {
@@ -153,6 +191,20 @@ int Rendu::afficherJeu()
                 }
             }
             i++;
+        }
+
+        //verifie si le joueur attrape une biere et la deplace + augmente nbpoints du joueur
+        for (Beer* beer:beers)
+        {
+            FloatRect beerbounds = beer->getShape().getGlobalBounds();
+            FloatRect playerBounds = joueur->getAvatar()->getEntiteGraphique().getGlobalBounds();
+
+            if(playerBounds.intersects(beerbounds))
+            {
+                joueur->winPoint();
+                beer->getShape().setPosition(0,0);
+                beer->getShape().setPosition((rand()%14)*50,150+((rand())%12)*50);
+            }
         }
         // Update the window
         app.display();

@@ -1,7 +1,7 @@
 #include "Model/Joueur.h"
 #include <SFML/Graphics.hpp>
 
-Joueur::Joueur(int score,int vie):score(score),vie(vie)
+Joueur::Joueur(int score,int vie, int nbPoints):score(score),vie(vie),nbPoints(nbPoints)
 {
     Joueur::avatar = new Avatar();
 }
@@ -37,4 +37,9 @@ int Joueur::getVie()const
 void Joueur::looseLife()
 {
     vie--;
+}
+
+void Joueur::winPoint()
+{
+    nbPoints++;
 }

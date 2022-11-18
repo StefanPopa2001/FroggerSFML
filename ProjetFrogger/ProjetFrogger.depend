@@ -1806,7 +1806,7 @@
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1668350823 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\model\joueur.h
+1668780765 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\model\joueur.h
 	<string>
 	<View/Avatar.h>
 
@@ -1816,15 +1816,16 @@
 1668351503 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\plateau.h
 	<SFML/Graphics.hpp>
 
-1668351184 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\rendu.h
+1668781411 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\rendu.h
 	<vector>
 	"Model/Voiture.h"
 	"Model/Joueur.h"
 	"View/Plateau.h"
 	"View/Life.h"
+	"View/Beer.h"
 	<SFML/Graphics.hpp>
 
-1668350839 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\model\joueur.cpp
+1668780776 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\model\joueur.cpp
 	"Model/Joueur.h"
 	<SFML/Graphics.hpp>
 
@@ -1851,7 +1852,7 @@
 1668351512 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\view\plateau.cpp
 	"View/Plateau.h"
 
-1668350518 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\view\rendu.cpp
+1668781330 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\view\rendu.cpp
 	"View/Rendu.h"
 	"View/Plateau.h"
 	"Model/Joueur.h"
@@ -1864,4 +1865,10 @@
 
 1668350649 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\life.h
 	<SFML/Graphics.hpp>
+
+1668779766 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\beer.h
+	<SFML/Graphics.hpp>
+
+1668779846 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\view\beer.cpp
+	"Beer.h"
 

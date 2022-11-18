@@ -6,6 +6,7 @@
 #include "Model/Joueur.h"
 #include "View/Plateau.h"
 #include "View/Life.h"
+#include "View/Beer.h"
 
 #include <SFML/Graphics.hpp>
 
@@ -17,9 +18,10 @@ class Rendu
         vector<Voiture*> voitures;
         Joueur* joueur;
         vector<Life*> lifes;
+        vector<Beer*> beers;
 
-        Voiture v;
         Plateau plateau;
+
 
     public:
         Rendu();
