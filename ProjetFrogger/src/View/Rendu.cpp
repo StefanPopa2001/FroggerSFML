@@ -11,6 +11,7 @@ Rendu::Rendu()
 
     //creation du joueur
     joueur = new Joueur;
+    joueur->getAvatar()->mettreAvatarPositionDepart();
 
     if (!font.loadFromFile("Ressources/font/arial.ttf"))
     {
@@ -108,7 +109,7 @@ int Rendu::afficherJeu()
     app.setVerticalSyncEnabled(true);
     app.setFramerateLimit(60);
 
-    joueur->getAvatar()->mettreAvatarPositionDepart();
+
 	// Start the game loop
     while (app.isOpen())
     {
@@ -175,6 +176,7 @@ int Rendu::afficherJeu()
                     plateau.setLose(true);
                     voitures.clear();
                     beers.clear();
+
 
                     gameEnd.setString("You completed "+std::to_string(Joueur::level) +" levels and collected "+std::to_string(joueur->getNbPoints())+" beers");
 
