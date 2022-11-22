@@ -22,6 +22,7 @@ class Plateau
         virtual ~Plateau();
         RectangleShape getEntiteGraphique();
         void setLose(bool lose);
+        bool isLoose();
 
 
 

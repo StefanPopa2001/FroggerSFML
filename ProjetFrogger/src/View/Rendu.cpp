@@ -30,6 +30,12 @@ Rendu::Rendu()
     level.setFillColor(Color::Black);
     level.setPosition(70.f, 40.f);
 
+    gameEnd.setString("");
+    gameEnd.setFont(font);
+    gameEnd.setCharacterSize(20);
+    gameEnd.setFillColor(Color::Black);
+    gameEnd.setPosition(0.f, 450.f);
+
     //placement des vies dans le vecteur en fonction du nombre de vie du joueur
     for (int i=0;i<joueur->getVie();i++)
     {
@@ -132,13 +138,15 @@ int Rendu::afficherJeu()
         app.draw(score);
         app.draw(level);
 
+        if (plateau.isLoose())
+        {
+            app.draw(gameEnd);
+        }
+
         for (Life* life:lifes)
         {
             app.draw(life->getShape());
         }
-
-
-
 
         for (Beer* beer:beers)
         {
@@ -165,9 +173,14 @@ int Rendu::afficherJeu()
                 if (joueur->getVie() == 0)
                 {
                     plateau.setLose(true);
+                    voitures.clear();
+                    beers.clear();
+
+                    gameEnd.setString("You completed "+std::to_string(Joueur::level) +" levels and collected "+std::to_string(joueur->getNbPoints())+" beers");
+
+
                 }
             }
-
 
             //on regarde si la voiture a commencé a droite ou a gauche de l'ecran,
             //ensuite on genere un random entre 0 et 1 pour savoir si elle va repartir a gauche ou a droite

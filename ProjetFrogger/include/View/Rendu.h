@@ -22,6 +22,7 @@ class Rendu
 
         Text level;
         Text score;
+        Text gameEnd;
         Font font;
         Plateau plateau;
 

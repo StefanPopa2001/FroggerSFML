@@ -34,6 +34,11 @@ void Plateau::setLose(bool lose)
     this->loose = lose;
 }
 
+bool Plateau::isLoose()
+{
+    return loose;
+}
+
 
 
 
