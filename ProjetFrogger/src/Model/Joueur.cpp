@@ -33,6 +33,10 @@ int Joueur::getVie()const
 {
     return vie;
 }
+int Joueur::getNbPoints()const
+{
+    return nbPoints;
+}
 
 void Joueur::looseLife()
 {

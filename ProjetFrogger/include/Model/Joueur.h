@@ -22,6 +22,7 @@ class Joueur
         string str();
         Avatar* getAvatar();
         int getVie()const;
+        int getNbPoints()const;
         void looseLife();
 
         void winPoint();

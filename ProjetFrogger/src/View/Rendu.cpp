@@ -13,6 +13,18 @@ Rendu::Rendu()
     joueur = new Joueur;
 
 
+    if (!font.loadFromFile("Ressources/font/arial.ttf"))
+    {
+        std::cout <<"ca marche pas"<<std::endl;
+
+    }
+    score.setString("");
+    score.setFont(font);
+    score.setCharacterSize(100);
+    score.setFillColor(Color::Black);
+    score.setPosition(400.f, -10.f);
+
+
     //placement des vies dans le vecteur en fonction du nombre de vie du joueur
     for (int i=0;i<joueur->getVie();i++)
     {
@@ -107,15 +119,11 @@ int Rendu::afficherJeu()
         // Clear screen
         app.clear();
 
-        Text score;
-        score.setString("hello world");
-        score.setCharacterSize(50);
-        score.setFillColor(Color::Cyan);
-        score.setPosition(300.f, 850.f);
-        app.draw(score);
+        score.setString(std::to_string(joueur->getNbPoints()));
 
         // Draw the sprite
         app.draw(plateau.getEntiteGraphique());
+        app.draw(score);
 
         for (Life* life:lifes)
         {
@@ -202,8 +210,8 @@ int Rendu::afficherJeu()
             if(playerBounds.intersects(beerbounds))
             {
                 joueur->winPoint();
-                beer->getShape().setPosition(0,0);
-                beer->getShape().setPosition((rand()%14)*50,150+((rand())%12)*50);
+                beer->getShape().setPosition(1000,1000);
+//                beer->getShape().setPosition((rand()%14)*50,150+((rand())%12)*50);
             }
         }
         // Update the window

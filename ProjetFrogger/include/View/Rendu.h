@@ -20,6 +20,8 @@ class Rendu
         vector<Life*> lifes;
         vector<Beer*> beers;
 
+        Text score;
+        Font font;
         Plateau plateau;
 
 

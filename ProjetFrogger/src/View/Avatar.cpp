@@ -51,6 +51,9 @@ void Avatar::deplacerAvatar(Event e)
 
         if(formeAvatar.getPosition().y < 0.f)
             formeAvatar.setPosition(formeAvatar.getPosition().x , 0.f);
+
+        if(formeAvatar.getPosition().y < 100)
+            mettreAvatarPositionDepart();
     }
 
     else if (e.key.code == sf::Keyboard::Down)
