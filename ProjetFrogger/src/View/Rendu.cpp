@@ -12,18 +12,23 @@ Rendu::Rendu()
     //creation du joueur
     joueur = new Joueur;
 
-
     if (!font.loadFromFile("Ressources/font/arial.ttf"))
     {
         std::cout <<"ca marche pas"<<std::endl;
 
     }
+
     score.setString("");
     score.setFont(font);
     score.setCharacterSize(100);
     score.setFillColor(Color::Black);
-    score.setPosition(400.f, -10.f);
+    score.setPosition(450.f, -20.f);
 
+    level.setString("");
+    level.setFont(font);
+    level.setCharacterSize(50);
+    level.setFillColor(Color::Black);
+    level.setPosition(70.f, 40.f);
 
     //placement des vies dans le vecteur en fonction du nombre de vie du joueur
     for (int i=0;i<joueur->getVie();i++)
@@ -120,10 +125,12 @@ int Rendu::afficherJeu()
         app.clear();
 
         score.setString(std::to_string(joueur->getNbPoints()));
+        level.setString(std::to_string(joueur->getLevel()));
 
         // Draw the sprite
         app.draw(plateau.getEntiteGraphique());
         app.draw(score);
+        app.draw(level);
 
         for (Life* life:lifes)
         {
@@ -142,6 +149,7 @@ int Rendu::afficherJeu()
 
         int i =0;
 
+
         //permet de verifier si il y a collision entre le joueur et n'importe qu'elle voiture du jeu
         //si il y a collision on decremente la vie
         for(Voiture* v: voitures)
@@ -159,6 +167,7 @@ int Rendu::afficherJeu()
                     plateau.setLose(true);
                 }
             }
+
 
             //on regarde si la voiture a commencé a droite ou a gauche de l'ecran,
             //ensuite on genere un random entre 0 et 1 pour savoir si elle va repartir a gauche ou a droite
@@ -211,7 +220,7 @@ int Rendu::afficherJeu()
             {
                 joueur->winPoint();
                 beer->getShape().setPosition(1000,1000);
-//                beer->getShape().setPosition((rand()%14)*50,150+((rand())%12)*50);
+                beer->getShape().setPosition((rand()%14)*50,150+((rand())%12)*50);
             }
         }
         // Update the window

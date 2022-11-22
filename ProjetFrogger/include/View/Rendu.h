@@ -20,10 +20,10 @@ class Rendu
         vector<Life*> lifes;
         vector<Beer*> beers;
 
+        Text level;
         Text score;
         Font font;
         Plateau plateau;
-
 
     public:
         Rendu();

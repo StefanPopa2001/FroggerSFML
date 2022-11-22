@@ -15,6 +15,7 @@ class Joueur
         Avatar* avatar;
 
 
+
     public:
         Joueur(int score=0,int vie=3, int nbPoints=0);
         virtual ~Joueur();
@@ -24,6 +25,9 @@ class Joueur
         int getVie()const;
         int getNbPoints()const;
         void looseLife();
+        int getLevel()const;
+
+        inline static int level = 1;
 
         void winPoint();
 

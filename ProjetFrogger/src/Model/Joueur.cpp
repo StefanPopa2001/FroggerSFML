@@ -47,3 +47,8 @@ void Joueur::winPoint()
 {
     nbPoints++;
 }
+
+int Joueur::getLevel()const
+{
+    return Joueur::level;
+}

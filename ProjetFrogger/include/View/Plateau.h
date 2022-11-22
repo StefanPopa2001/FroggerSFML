@@ -14,6 +14,7 @@ class Plateau
         RectangleShape loseForm;
         Texture textureLose;
 
+
         bool loose;
 
     public:
@@ -21,6 +22,7 @@ class Plateau
         virtual ~Plateau();
         RectangleShape getEntiteGraphique();
         void setLose(bool lose);
+
 
 
 };

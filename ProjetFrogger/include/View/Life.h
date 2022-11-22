@@ -16,7 +16,7 @@ class Life
 
         RectangleShape& getShape();
 
-        inline static int firstX = 0;
+        inline static int firstX = 150;
 
     protected:
 };

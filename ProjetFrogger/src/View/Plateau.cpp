@@ -35,3 +35,5 @@ void Plateau::setLose(bool lose)
 }
 
 
+
+
