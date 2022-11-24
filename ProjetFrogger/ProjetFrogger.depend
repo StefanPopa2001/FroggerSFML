@@ -2292,8 +2292,13 @@
 	<string>
 	<View/Avatar.h>
 
-1669120463 c:\users\popas\desktop\froggur\froggersfml\projetfrogger\include\view\avatar.h
+1669309619 c:\users\popas\desktop\froggur\froggersfml\projetfrogger\include\view\avatar.h
 	<SFML/Graphics.hpp>
+	<MovingState.h>
+	<MovingStateAlive.h>
+	<MovingStateDead.h>
+	<MovingStateWin.h>
+	<ContextMovingState.h>
 
 1669127015 c:\users\popas\desktop\froggur\froggersfml\projetfrogger\include\view\plateau.h
 	<SFML/Graphics.hpp>
@@ -2329,7 +2334,7 @@
 	"Model/Voiture.h"
 	<SFML/Graphics.hpp>
 
-1669127015 source:c:\users\popas\desktop\froggur\froggersfml\projetfrogger\src\view\avatar.cpp
+1669309403 source:c:\users\popas\desktop\froggur\froggersfml\projetfrogger\src\view\avatar.cpp
 	"View/Avatar.h"
 	"View/Rendu.h"
 
@@ -2354,18 +2359,37 @@
 	"View/Life.h"
 	<iostream>
 
-1669128588 source:c:\users\popas\desktop\froggur\froggersfml\projetfrogger\src\view\movingstatedead.cpp
+1669306734 source:c:\users\popas\desktop\froggur\froggersfml\projetfrogger\src\view\movingstatedead.cpp
 	"View/MovingStateDead.h"
 
-1669128604 source:c:\users\popas\desktop\froggur\froggersfml\projetfrogger\src\view\movingstatewin.cpp
+1669306768 source:c:\users\popas\desktop\froggur\froggersfml\projetfrogger\src\view\movingstatewin.cpp
 	"View/MovingStateWin.h"
 
-1669128558 source:c:\users\popas\desktop\froggur\froggersfml\projetfrogger\src\view\movingstatealive.cpp
+1669306621 source:c:\users\popas\desktop\froggur\froggersfml\projetfrogger\src\view\movingstatealive.cpp
 	"View/MovingStateAlive.h"
 
-1669128563 c:\users\popas\desktop\froggur\froggersfml\projetfrogger\include\view\movingstatealive.h
+1669306499 c:\users\popas\desktop\froggur\froggersfml\projetfrogger\include\view\movingstatealive.h
+	"MovingState.h"
 
-1669128636 c:\users\popas\desktop\froggur\froggersfml\projetfrogger\include\view\movingstatedead.h
+1669306630 c:\users\popas\desktop\froggur\froggersfml\projetfrogger\include\view\movingstatedead.h
+	"MovingState.h"
 
-1669128664 c:\users\popas\desktop\froggur\froggersfml\projetfrogger\include\view\movingstatewin.h
+1669306743 c:\users\popas\desktop\froggur\froggersfml\projetfrogger\include\view\movingstatewin.h
+	"MovingState.h"
+
+1669306305 source:c:\users\popas\desktop\froggur\froggersfml\projetfrogger\src\view\movingstate.cpp
+	"View/MovingState.h"
+
+1669306299 c:\users\popas\desktop\froggur\froggersfml\projetfrogger\include\view\movingstate.h
+	<vector>
+
+1669309505 c:\users\popas\desktop\froggur\froggersfml\projetfrogger\include\view\contextmovingstate.h
+	<MovingState.h>
+	<MovingStateAlive.h>
+	<MovingStateDead.h>
+	<MovingStateWin.h>
+	<vector>
+
+1669309323 source:c:\users\popas\desktop\froggur\froggersfml\projetfrogger\src\view\contextmovingstate.cpp
+	"View/ContextMovingState.h"
 

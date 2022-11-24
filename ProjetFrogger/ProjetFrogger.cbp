@@ -62,6 +62,7 @@
 		<Unit filename="include/View/Avatar.h" />
 		<Unit filename="include/View/Beer" />
 		<Unit filename="include/View/Beer.h" />
+		<Unit filename="include/View/ContextMovingState.h" />
 		<Unit filename="include/View/Life.h" />
 		<Unit filename="include/View/MovingState.h" />
 		<Unit filename="include/View/MovingStateAlive.h" />
@@ -77,6 +78,7 @@
 		<Unit filename="src/View/Avatar.cpp" />
 		<Unit filename="src/View/Beer" />
 		<Unit filename="src/View/Beer.cpp" />
+		<Unit filename="src/View/ContextMovingState.cpp" />
 		<Unit filename="src/View/Life.cpp" />
 		<Unit filename="src/View/MovingState.cpp" />
 		<Unit filename="src/View/MovingStateAlive.cpp" />

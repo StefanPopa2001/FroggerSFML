@@ -177,7 +177,7 @@ int Rendu::afficherJeu()
                     voitures.clear();
                     beers.clear();
 
-
+                    joueur->getAvatar()->die();
                     gameEnd.setString("You completed "+std::to_string(Joueur::level) +" levels and collected "+std::to_string(joueur->getNbPoints())+" beers");
 
 

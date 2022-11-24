@@ -29,9 +29,14 @@ void Avatar::mettreAvatarPositionDepart()
 void Avatar::deplacerAvatar(Event e)
 {
 
+
+
     if (e.key.code == sf::Keyboard::Left)
     {
-        formeAvatar.move(-50,0);
+
+        vector<float> v = movingstate->getState()->getLeftMouvement();
+
+        formeAvatar.move(v[0],v[1]);
 
         if(formeAvatar.getPosition().x < 0.f)
             formeAvatar.setPosition(0.f , formeAvatar.getPosition().y);
@@ -39,7 +44,10 @@ void Avatar::deplacerAvatar(Event e)
 
     else if (e.key.code == sf::Keyboard::Right)
     {
-        formeAvatar.move(50,0);
+
+        vector<float> v = movingstate->getState()->getRightMouvement();
+
+        formeAvatar.move(v[0],v[1]);
 
         if(formeAvatar.getPosition().x + formeAvatar.getGlobalBounds().width > 700)
             formeAvatar.setPosition(700 - formeAvatar.getGlobalBounds().width, formeAvatar.getPosition().y);
@@ -47,7 +55,9 @@ void Avatar::deplacerAvatar(Event e)
 
     else if (e.key.code == sf::Keyboard::Up)
     {
-        formeAvatar.move(0,-50);
+
+        vector<float> v = movingstate->getState()->getUptMouvement();
+        formeAvatar.move(v[0],v[1]);
 
         if(formeAvatar.getPosition().y < 0.f)
             formeAvatar.setPosition(formeAvatar.getPosition().x , 0.f);
@@ -63,7 +73,11 @@ void Avatar::deplacerAvatar(Event e)
 
     else if (e.key.code == sf::Keyboard::Down)
     {
-        formeAvatar.move(0,50);
+
+
+        vector<float> v = movingstate->getState()->getDownMouvement();
+        formeAvatar.move(v[0],v[1]);
+
         if(formeAvatar.getPosition().y + formeAvatar.getGlobalBounds().height> 900)
             formeAvatar.setPosition(formeAvatar.getPosition().x , 900 - formeAvatar.getGlobalBounds().height);
     }
