@@ -15,8 +15,8 @@ using namespace sf;
 class Rendu
 {
     private:
-        vector<Voiture*> voitures;
-        Joueur* joueur;
+        vector<Voiture*> cars;
+        Joueur* player;
         vector<Life*> lifes;
         vector<Beer*> beers;
 

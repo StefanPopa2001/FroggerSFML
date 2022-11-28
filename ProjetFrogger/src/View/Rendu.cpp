@@ -10,8 +10,8 @@ Rendu::Rendu()
 {
 
     //creation du joueur
-    joueur = new Joueur;
-    joueur->getAvatar()->mettreAvatarPositionDepart();
+    player = new Joueur;
+    player->getAvatar()->mettreAvatarPositionDepart();
 
     if (!font.loadFromFile("Ressources/font/arial.ttf"))
     {
@@ -38,7 +38,7 @@ Rendu::Rendu()
     gameEnd.setPosition(0.f, 450.f);
 
     //placement des vies dans le vecteur en fonction du nombre de vie du joueur
-    for (int i=0;i<joueur->getVie();i++)
+    for (int i=0;i<player->getVie();i++)
     {
         lifes.push_back(new Life);
     }
@@ -66,11 +66,11 @@ Rendu::Rendu()
     //placement voiture vecteur
     for (int i=0; i<12;i++)
     {
-        voitures.push_back(new Voiture);
+        cars.push_back(new Voiture);
     }
     //le %2 permet de changer la direction d'une voiture sur 2
     int i=0;
-    for(Voiture* v: voitures)
+    for(Voiture* v: cars)
     {
         if (i%2==0)
         {
@@ -95,7 +95,7 @@ Rendu::Rendu()
 Rendu::~Rendu()
 {
 
-    delete joueur;
+    delete player;
 }
 
 int Rendu::afficherJeu()
@@ -125,14 +125,14 @@ int Rendu::afficherJeu()
 
             else if (event.type == sf::Event::KeyPressed)
             {
-                joueur->getAvatar()->deplacerAvatar(event);
+                player->getAvatar()->deplacerAvatar(event);
             }
         }
         // Clear screen
         app.clear();
 
-        score.setString(std::to_string(joueur->getNbPoints()));
-        level.setString(std::to_string(joueur->getLevel()));
+        score.setString(std::to_string(player->getNbPoints()));
+        level.setString(std::to_string(player->getLevel()));
 
         // Draw the sprite
         app.draw(plateau.getEntiteGraphique());
@@ -154,31 +154,31 @@ int Rendu::afficherJeu()
             app.draw(beer->getShape());
         }
 
-        app.draw(joueur->getAvatar()->getEntiteGraphique());
+        app.draw(player->getAvatar()->getEntiteGraphique());
 
         int i =0;
 
 
         //permet de verifier si il y a collision entre le joueur et n'importe qu'elle voiture du jeu
         //si il y a collision on decremente la vie
-        for(Voiture* v: voitures)
+        for(Voiture* v: cars)
         {
             FloatRect VoitureBounds = v->getObstacle().getEntiteGraphique().getGlobalBounds();
-            FloatRect JoueurBounds = joueur->getAvatar()->getEntiteGraphique().getGlobalBounds();
+            FloatRect JoueurBounds = player->getAvatar()->getEntiteGraphique().getGlobalBounds();
 
             if(JoueurBounds.intersects(VoitureBounds))
             {
-                joueur->getAvatar()->mettreAvatarPositionDepart();
-                joueur->looseLife();
+                player->getAvatar()->mettreAvatarPositionDepart();
+                player->looseLife();
                 lifes.pop_back();
-                if (joueur->getVie() == 0)
+                if (player->getVie() == 0)
                 {
                     plateau.setLose(true);
-                    voitures.clear();
+                    cars.clear();
                     beers.clear();
 
-                    joueur->getAvatar()->die();
-                    gameEnd.setString("You completed "+std::to_string(Joueur::level) +" levels and collected "+std::to_string(joueur->getNbPoints())+" beers");
+                    player->getAvatar()->die();
+                    gameEnd.setString("You completed "+std::to_string(Joueur::level) +" levels and collected "+std::to_string(player->getNbPoints())+" beers");
 
 
                 }
@@ -229,11 +229,11 @@ int Rendu::afficherJeu()
         for (Beer* beer:beers)
         {
             FloatRect beerbounds = beer->getShape().getGlobalBounds();
-            FloatRect playerBounds = joueur->getAvatar()->getEntiteGraphique().getGlobalBounds();
+            FloatRect playerBounds = player->getAvatar()->getEntiteGraphique().getGlobalBounds();
 
             if(playerBounds.intersects(beerbounds))
             {
-                joueur->winPoint();
+                player->winPoint();
                 beer->getShape().setPosition(1000,1000);
                 beer->getShape().setPosition((rand()%14)*50,150+((rand())%12)*50);
             }
