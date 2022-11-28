@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <Model/Joueur.h>
-#include <View/Plateau.h>
+#include <View/GameBoard.h>
 #include <View/Rendu.h>
 #include <iostream>
 #include <View/MenuJeu.h>

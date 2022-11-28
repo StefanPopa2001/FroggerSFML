@@ -13,7 +13,7 @@ using namespace sf;
 class Avatar
 {
     private:
-        RectangleShape formeAvatar;
+        RectangleShape shapeAvatar;
         Texture textureAvatar;
         ContextMovingState* movingstate = new ContextMovingState;
 
@@ -23,9 +23,9 @@ class Avatar
         }
         Avatar();
         virtual ~Avatar();
-        RectangleShape getEntiteGraphique();
-        void mettreAvatarPositionDepart();
-        void deplacerAvatar(Event e);
+        RectangleShape getGraphicEntity();
+        void putAvatarStartPosition();
+        void moveAvatar(Event e);
 
 
 };

@@ -4,7 +4,7 @@
 #include <vector>
 #include "Model/Voiture.h"
 #include "Model/Joueur.h"
-#include "View/Plateau.h"
+#include "View/GameBoard.h"
 #include "View/Life.h"
 #include "View/Beer.h"
 
@@ -24,7 +24,7 @@ class Rendu
         Text score;
         Text gameEnd;
         Font font;
-        Plateau plateau;
+        GameBoard board;
 
     public:
         Rendu();

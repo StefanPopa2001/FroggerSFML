@@ -5,11 +5,11 @@
 
 using namespace sf;
 
-class Plateau
+class GameBoard
 {
     private:
-        RectangleShape formePlateau;
-        Texture texturePlateau;
+        RectangleShape shapeBoard;
+        Texture textureBoard;
 
         RectangleShape loseForm;
         Texture textureLose;
@@ -18,9 +18,9 @@ class Plateau
         bool loose;
 
     public:
-        Plateau();
-        virtual ~Plateau();
-        RectangleShape getEntiteGraphique();
+        GameBoard();
+        virtual ~GameBoard();
+        RectangleShape getGraphicEntity();
         void setLose(bool lose);
         bool isLoose();
 

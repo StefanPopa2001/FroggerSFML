@@ -63,6 +63,7 @@
 		<Unit filename="include/View/Beer" />
 		<Unit filename="include/View/Beer.h" />
 		<Unit filename="include/View/ContextMovingState.h" />
+		<Unit filename="include/View/GameBoard.h" />
 		<Unit filename="include/View/Life.h" />
 		<Unit filename="include/View/MenuJeu.h" />
 		<Unit filename="include/View/MovingState.h" />
@@ -70,7 +71,6 @@
 		<Unit filename="include/View/MovingStateDead.h" />
 		<Unit filename="include/View/MovingStateWin.h" />
 		<Unit filename="include/View/Obstacle.h" />
-		<Unit filename="include/View/Plateau.h" />
 		<Unit filename="include/View/Rendu.h" />
 		<Unit filename="include/èuy" />
 		<Unit filename="main.cpp" />
@@ -80,6 +80,7 @@
 		<Unit filename="src/View/Beer" />
 		<Unit filename="src/View/Beer.cpp" />
 		<Unit filename="src/View/ContextMovingState.cpp" />
+		<Unit filename="src/View/GameBoard.cpp" />
 		<Unit filename="src/View/Life.cpp" />
 		<Unit filename="src/View/MenuJeu.cpp" />
 		<Unit filename="src/View/MovingState.cpp" />
@@ -87,7 +88,6 @@
 		<Unit filename="src/View/MovingStateDead.cpp" />
 		<Unit filename="src/View/MovingStateWin.cpp" />
 		<Unit filename="src/View/Obstacle.cpp" />
-		<Unit filename="src/View/Plateau.cpp" />
 		<Unit filename="src/View/Rendu.cpp" />
 		<Unit filename="src/èuy" />
 		<Extensions />

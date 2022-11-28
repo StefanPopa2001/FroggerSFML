@@ -1,5 +1,5 @@
 #include "View/Rendu.h"
-#include "View/Plateau.h"
+#include "View/GameBoard.h"
 #include "Model/Joueur.h"
 #include "Model/Voiture.h"
 #include "View/Life.h"
@@ -11,7 +11,7 @@ Rendu::Rendu()
 
     //creation du joueur
     player = new Joueur;
-    player->getAvatar()->mettreAvatarPositionDepart();
+    player->getAvatar()->putAvatarStartPosition();
 
     if (!font.loadFromFile("Ressources/font/arial.ttf"))
     {
@@ -95,6 +95,15 @@ Rendu::Rendu()
 Rendu::~Rendu()
 {
 
+    for(Voiture* v: cars){
+        delete v;
+    }
+    for(Life* l: lifes){
+        delete l;
+    }
+    for(Beer* b: beers){
+        delete b;
+    }
     delete player;
 }
 
@@ -125,7 +134,7 @@ int Rendu::afficherJeu()
 
             else if (event.type == sf::Event::KeyPressed)
             {
-                player->getAvatar()->deplacerAvatar(event);
+                player->getAvatar()->moveAvatar(event);
             }
         }
         // Clear screen
@@ -135,11 +144,11 @@ int Rendu::afficherJeu()
         level.setString(std::to_string(player->getLevel()));
 
         // Draw the sprite
-        app.draw(plateau.getEntiteGraphique());
+        app.draw(board.getGraphicEntity());
         app.draw(score);
         app.draw(level);
 
-        if (plateau.isLoose())
+        if (board.isLoose())
         {
             app.draw(gameEnd);
         }
@@ -154,7 +163,7 @@ int Rendu::afficherJeu()
             app.draw(beer->getShape());
         }
 
-        app.draw(player->getAvatar()->getEntiteGraphique());
+        app.draw(player->getAvatar()->getGraphicEntity());
 
         int i =0;
 
@@ -164,16 +173,16 @@ int Rendu::afficherJeu()
         for(Voiture* v: cars)
         {
             FloatRect VoitureBounds = v->getObstacle().getEntiteGraphique().getGlobalBounds();
-            FloatRect JoueurBounds = player->getAvatar()->getEntiteGraphique().getGlobalBounds();
+            FloatRect JoueurBounds = player->getAvatar()->getGraphicEntity().getGlobalBounds();
 
             if(JoueurBounds.intersects(VoitureBounds))
             {
-                player->getAvatar()->mettreAvatarPositionDepart();
+                player->getAvatar()->putAvatarStartPosition();
                 player->looseLife();
                 lifes.pop_back();
                 if (player->getVie() == 0)
                 {
-                    plateau.setLose(true);
+                    board.setLose(true);
                     cars.clear();
                     beers.clear();
 
@@ -229,7 +238,7 @@ int Rendu::afficherJeu()
         for (Beer* beer:beers)
         {
             FloatRect beerbounds = beer->getShape().getGlobalBounds();
-            FloatRect playerBounds = player->getAvatar()->getEntiteGraphique().getGlobalBounds();
+            FloatRect playerBounds = player->getAvatar()->getGraphicEntity().getGlobalBounds();
 
             if(playerBounds.intersects(beerbounds))
             {
