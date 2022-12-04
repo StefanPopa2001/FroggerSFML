@@ -37,8 +37,6 @@ int main()
 
                 case sf::Keyboard::Return:
 
-                   // sf::RenderWindow play(sf::VideoMode(800,600),"Frogger");
-
 
                     switch(menu.GetPressedItem())
                     {
@@ -47,24 +45,6 @@ int main()
                         app.close();
 
                         r.afficherJeu();
-
-                      /*  while(play.isOpen())
-                        {
-                            sf::Event aevent;
-                          //  play.draw();
-                            while(play.pollEvent(aevent))
-                            {
-                                if(aevent.type == sf::Event::Closed)
-                                {
-                                    play.close();
-                                }
-                            }
-                            options.close();
-                            play.clear();
-                            //play.draw()
-                            play.display();
-                        }*/
-
                         break;
                     case 1:
                         std::cout<<"Option button pressed"<< std::endl;
@@ -74,38 +54,23 @@ int main()
                         app.close();
                         break;
                     }
+                    break;
                 }
                 break;
 
             case sf::Event::Closed:
                 app.close();
                 break;
-
-
             }
-
-
+            break;
         }
 
-        // Clear screen
         app.clear();
 
         menu.draw(app);
 
-        // Draw the sprite
-        //app.draw(sprite);
-
-
-
-        // Update the window
         app.display();
     }
-
-
-    //r.afficherJeu();
-
-
-
 
     return 69;
 
