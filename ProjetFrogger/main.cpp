@@ -55,14 +55,19 @@ int main()
                         break;
                     }
                     break;
+                 default:
+                     break;
                 }
                 break;
 
             case sf::Event::Closed:
                 app.close();
                 break;
+            default:
+                break;
             }
             break;
+
         }
 
         app.clear();
