@@ -2,8 +2,8 @@
 #define RENDU_H
 
 #include <vector>
-#include "Model/Voiture.h"
-#include "Model/Joueur.h"
+#include "Model/Car.h"
+#include "Model/Player.h"
 #include "View/GameBoard.h"
 #include "View/Life.h"
 #include "View/Beer.h"
@@ -15,8 +15,8 @@ using namespace sf;
 class Rendu
 {
     private:
-        vector<Voiture*> cars;
-        Joueur* player;
+        vector<Car*> cars;
+        Player* player;
         vector<Life*> lifes;
         vector<Beer*> beers;
 

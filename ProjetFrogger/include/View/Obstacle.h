@@ -8,14 +8,14 @@ using namespace sf;
 class Obstacle
 {
     private:
-        RectangleShape formeObstacle;
+        RectangleShape shapeObstacle;
         Texture textureObstacle;
         bool right;
 
     public:
         Obstacle(int type);
         virtual ~Obstacle();
-        RectangleShape& getEntiteGraphique();
+        RectangleShape& getGraphicEntity();
         void setRight(bool b);
         bool isRight();
 

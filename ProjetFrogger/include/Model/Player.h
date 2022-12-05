@@ -5,24 +5,24 @@
 
 using namespace std;
 
-class Joueur
+class Player
 {
 
     private:
         int score;
-        int vie;
+        int life;
         int nbPoints;
         Avatar* avatar;
 
 
 
     public:
-        Joueur(int score=0,int vie=3, int nbPoints=0);
-        virtual ~Joueur();
-        void augmenterScore(int score);
+        Player(int score=0,int life=3, int nbPoints=0);
+        virtual ~Player();
+        void upScore(int score);
         string str();
         Avatar* getAvatar();
-        int getVie()const;
+        int getLife()const;
         int getNbPoints()const;
         void looseLife();
         int getLevel()const;

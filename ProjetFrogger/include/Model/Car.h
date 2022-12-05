@@ -1,12 +1,12 @@
 #ifndef Voiture_H
 #define Voiture_H
 #include <string>
-#include <Model/Voiture.h>
+#include <Model/Car.h>
 #include <View/Obstacle.h>
 
 using namespace std;
 
-class Voiture
+class Car
 {
 
     private:
@@ -14,10 +14,10 @@ class Voiture
         Obstacle* obstacle;
 
     public:
-        Voiture(int type=rand()%3+1);
-        virtual ~Voiture();
+        Car(int type=rand()%3+1);
+        virtual ~Car();
         Obstacle& getObstacle();
-        void deplacer(int sens);
+        void moove(int direction);
 };
 
 #endif // JOUEUR_H

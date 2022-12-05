@@ -1,5 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include <Model/Joueur.h>
+#include <Model/Player.h>
 #include <View/GameBoard.h>
 #include <View/Rendu.h>
 #include <iostream>

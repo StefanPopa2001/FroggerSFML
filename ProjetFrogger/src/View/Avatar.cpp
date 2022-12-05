@@ -65,7 +65,7 @@ void Avatar::moveAvatar(Event e)
         if(shapeAvatar.getPosition().y < 150)
         {
             putAvatarStartPosition();
-            Joueur::level++;
+            Player::level++;
         }
 
 

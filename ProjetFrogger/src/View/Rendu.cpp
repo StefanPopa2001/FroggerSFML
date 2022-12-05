@@ -1,7 +1,7 @@
 #include "View/Rendu.h"
 #include "View/GameBoard.h"
-#include "Model/Joueur.h"
-#include "Model/Voiture.h"
+#include "Model/Player.h"
+#include "Model/Car.h"
 #include "View/Life.h"
 
 #include <iostream>
@@ -10,7 +10,7 @@ Rendu::Rendu()
 {
 
     //creation du joueur
-    player = new Joueur;
+    player = new Player;
     player->getAvatar()->putAvatarStartPosition();
 
     if (!font.loadFromFile("Ressources/font/arial.ttf"))
@@ -38,7 +38,7 @@ Rendu::Rendu()
     gameEnd.setPosition(0.f, 450.f);
 
     //placement des vies dans le vecteur en fonction du nombre de vie du joueur
-    for (int i=0;i<player->getVie();i++)
+    for (int i=0;i<player->getLife();i++)
     {
         lifes.push_back(new Life);
     }
@@ -66,21 +66,21 @@ Rendu::Rendu()
     //placement voiture vecteur
     for (int i=0; i<12;i++)
     {
-        cars.push_back(new Voiture);
+        cars.push_back(new Car);
     }
     //le %2 permet de changer la direction d'une voiture sur 2
     int i=0;
-    for(Voiture* v: cars)
+    for(Car* v: cars)
     {
         if (i%2==0)
         {
-            v->getObstacle().getEntiteGraphique().setPosition(-100.f, Rendu::compteurPosY);
+            v->getObstacle().getGraphicEntity().setPosition(-100.f, Rendu::compteurPosY);
             v->getObstacle().setRight(false);
         }
         else
         {
-            v->getObstacle().getEntiteGraphique().setPosition(700.f, Rendu::compteurPosY);
-            v->getObstacle().getEntiteGraphique().scale(-1,1);
+            v->getObstacle().getGraphicEntity().setPosition(700.f, Rendu::compteurPosY);
+            v->getObstacle().getGraphicEntity().scale(-1,1);
             v->getObstacle().setRight(true);
         }
         Rendu::compteurPosY +=50;
@@ -95,7 +95,7 @@ Rendu::Rendu()
 Rendu::~Rendu()
 {
 
-    for(Voiture* v: cars){
+    for(Car* v: cars){
         delete v;
     }
     for(Life* l: lifes){
@@ -170,9 +170,9 @@ int Rendu::afficherJeu()
 
         //permet de verifier si il y a collision entre le joueur et n'importe qu'elle voiture du jeu
         //si il y a collision on decremente la vie
-        for(Voiture* v: cars)
+        for(Car* v: cars)
         {
-            FloatRect VoitureBounds = v->getObstacle().getEntiteGraphique().getGlobalBounds();
+            FloatRect VoitureBounds = v->getObstacle().getGraphicEntity().getGlobalBounds();
             FloatRect JoueurBounds = player->getAvatar()->getGraphicEntity().getGlobalBounds();
 
             if(JoueurBounds.intersects(VoitureBounds))
@@ -180,14 +180,14 @@ int Rendu::afficherJeu()
                 player->getAvatar()->putAvatarStartPosition();
                 player->looseLife();
                 lifes.pop_back();
-                if (player->getVie() == 0)
+                if (player->getLife() == 0)
                 {
                     board.setLose(true);
                     cars.clear();
                     beers.clear();
 
                     player->getAvatar()->die();
-                    gameEnd.setString("You completed "+std::to_string(Joueur::level) +" levels and collected "+std::to_string(player->getNbPoints())+" beers");
+                    gameEnd.setString("You completed "+std::to_string(Player::level) +" levels and collected "+std::to_string(player->getNbPoints())+" beers");
 
 
                 }
@@ -195,39 +195,39 @@ int Rendu::afficherJeu()
 
             //on regarde si la voiture a commencé a droite ou a gauche de l'ecran,
             //ensuite on genere un random entre 0 et 1 pour savoir si elle va repartir a gauche ou a droite
-            app.draw(v->getObstacle().getEntiteGraphique());
+            app.draw(v->getObstacle().getGraphicEntity());
             if (!(v->getObstacle().isRight()))
             {
-                v->deplacer(1);
-                if (v->getObstacle().getEntiteGraphique().getPosition().x > WINDOW_WIDTH+100)
+                v->moove(1);
+                if (v->getObstacle().getGraphicEntity().getPosition().x > WINDOW_WIDTH+100)
                 {
                     int random = rand()%2;
                     if (random==0)
                     {
-                        v->getObstacle().getEntiteGraphique().move(-800,0);
+                        v->getObstacle().getGraphicEntity().move(-800,0);
                     }
                     else
                     {
                         v->getObstacle().setRight(true);
-                        v->getObstacle().getEntiteGraphique().scale(-1,1);
+                        v->getObstacle().getGraphicEntity().scale(-1,1);
                     }
                 }
             }
             else
             {
-                v->deplacer(-1);
-                if (v->getObstacle().getEntiteGraphique().getPosition().x < -100)
+                v->moove(-1);
+                if (v->getObstacle().getGraphicEntity().getPosition().x < -100)
                 {
                     int random = rand()%2;
                     if (random==0)
                     {
                         v->getObstacle().setRight(false);
-                        v->getObstacle().getEntiteGraphique().scale(-1,1);
+                        v->getObstacle().getGraphicEntity().scale(-1,1);
                     }
                     else
                     {
-                        v->getObstacle().getEntiteGraphique().move(800,0);
-                        v->getObstacle().getEntiteGraphique().scale(1,1);
+                        v->getObstacle().getGraphicEntity().move(800,0);
+                        v->getObstacle().getGraphicEntity().scale(1,1);
                     }
                 }
             }
