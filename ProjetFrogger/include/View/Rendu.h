@@ -7,6 +7,7 @@
 #include "View/GameBoard.h"
 #include "View/Life.h"
 #include "View/Beer.h"
+#include "View/menuEndGame.h"
 
 #include <SFML/Graphics.hpp>
 
@@ -26,10 +27,11 @@ class Rendu
         Font font;
         GameBoard board;
 
+
     public:
         Rendu();
         virtual ~Rendu();
-        int afficherJeu();
+        int showGame();
 
         inline static int compteurPosY = 150;
 

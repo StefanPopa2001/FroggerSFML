@@ -24,6 +24,8 @@ string Player::str()
 }
 
 
+
+
 Avatar* Player::getAvatar()
 {
     return avatar;
@@ -51,4 +53,19 @@ void Player::winPoint()
 int Player::getLevel()const
 {
     return Player::level;
+}
+
+void Player::setLevel(int levell)
+{
+    level=levell;
+}
+
+void Player::setNbPoints(int points)
+{
+    nbPoints=points;
+}
+
+void Player::setLife(int lifes)
+{
+    life=lifes;
 }

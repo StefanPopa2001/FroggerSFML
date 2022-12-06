@@ -28,6 +28,12 @@ class ContextMovingState
             this->currentState = new MovingStateDead;
         }
 
+         void setWinState()
+        {
+            delete currentState;
+            this->currentState = new MovingStateWin;
+        }
+
         MovingState* getState()
         {
             return currentState;

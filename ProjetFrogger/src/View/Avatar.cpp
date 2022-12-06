@@ -20,6 +20,21 @@ RectangleShape Avatar::getGraphicEntity()
     return shapeAvatar;
 }
 
+void Avatar::die()
+{
+     this->movingstate->setDeadState();
+}
+
+void Avatar::win()
+{
+    this->movingstate->setWinState();
+}
+
+void Avatar::replay()
+{
+    this->movingstate->setState();
+}
+
 void Avatar::putAvatarStartPosition()
 {
     shapeAvatar.setPosition(300.f, 850.f);

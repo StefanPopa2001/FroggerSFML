@@ -12,7 +12,13 @@ GameBoard::GameBoard()
     loseForm.setTexture(&textureLose);
     loseForm.setPosition(0.f, 0.f);
 
+    winForm = RectangleShape({700,900}),
+    textureWin.loadFromFile("Ressources/victory_screen.jfif");
+    winForm.setTexture(&textureWin);
+    winForm.setPosition(0.f, 0.f);
+
     loose = false;
+    win = false;
 }
 
 GameBoard::~GameBoard()
@@ -22,6 +28,9 @@ GameBoard::~GameBoard()
 
 RectangleShape GameBoard::getGraphicEntity()
 {
+    if(win)
+        return winForm;
+
     if (!loose)
         return shapeBoard;
     else
@@ -32,6 +41,16 @@ RectangleShape GameBoard::getGraphicEntity()
 void GameBoard::setLose(bool lose)
 {
     this->loose = lose;
+}
+
+void GameBoard::setWin(bool win)
+{
+    this->win = win;
+}
+
+bool GameBoard::isWin()
+{
+    return win;
 }
 
 bool GameBoard::isLoose()

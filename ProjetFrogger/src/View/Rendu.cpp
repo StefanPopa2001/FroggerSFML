@@ -107,7 +107,7 @@ Rendu::~Rendu()
     delete player;
 }
 
-int Rendu::afficherJeu()
+int Rendu::showGame()
 {
     // Create the main window
     const unsigned WINDOW_WIDTH = 700;
@@ -138,18 +138,109 @@ int Rendu::afficherJeu()
             }
         }
         // Clear screen
+
         app.clear();
+        if(!board.isWin() && !board.isLoose()){
+            score.setString(std::to_string(player->getNbPoints()));
+            level.setString(std::to_string(player->getLevel()));
+        }
+        else{
+            score.setString("");
+            level.setString("");
+            sf::RenderWindow renderwindow(sf::VideoMode(WINDOW_WIDTH,WINDOW_HEIGHT),"Replay");
+            menuEndGame menuendGame(renderwindow.getSize().x,renderwindow.getSize().y);
+            app.clear();
+            while(renderwindow.isOpen())
+            {
 
-        score.setString(std::to_string(player->getNbPoints()));
-        level.setString(std::to_string(player->getLevel()));
 
+                        // Process events
+        sf::Event event;
+        while (renderwindow.pollEvent(event))
+        {
+            switch(event.type)
+            {
+           case sf::Event::KeyReleased:
+                switch(event.key.code)
+                {
+                case sf::Keyboard::Up:
+                    menuendGame.MoveUp();
+                    break;
+                case sf::Keyboard::Down:
+                    menuendGame.MoveDown();
+                    break;
+
+                case sf::Keyboard::Return:
+
+
+                    switch(menuendGame.GetPressedItem())
+                    {
+                    case 0:
+                        std::cout<<"Play button pressed"<< std::endl;
+
+                        renderwindow.close();
+                        player->setLevel(1);
+                        player->setLife(3);
+                        lifes.clear();
+                        player->setNbPoints(0);
+                        board.setLose(false);
+                        board.setWin(false);
+                        player->getAvatar()->replay();
+                        for (int i=0;i<player->getLife();i++)
+                        {
+                            lifes.push_back(new Life);
+                        }
+                        Life::firstX=150;
+                        //placement graphique des vies
+                        for (Life* life:lifes)
+                        {
+                            life->getShape().setPosition(Life::firstX,0.f);
+
+                            Life::firstX +=50;
+                        }
+                        app.clear();
+                        //r.showGame();
+                        break;
+                    case 1:
+                        std::cout<<"Option button pressed"<< std::endl;
+                        app.close();
+                        renderwindow.close();
+                        break;
+                    }
+                    break;
+                 default:
+                     break;
+                }
+                break;
+
+            case sf::Event::Closed:
+                renderwindow.close();
+                app.close();
+                break;
+            default:
+                break;
+            }
+            break;
+
+                    }
+                    renderwindow.clear();
+                    menuendGame.draw(renderwindow);
+                    renderwindow.display();
+            }
+
+
+
+
+        }
         // Draw the sprite
         app.draw(board.getGraphicEntity());
         app.draw(score);
         app.draw(level);
 
-        if (board.isLoose())
+        if (board.isLoose() || board.isWin())
         {
+            score.setString("ement");
+            level.setString("change");
             app.draw(gameEnd);
         }
 
@@ -167,6 +258,16 @@ int Rendu::afficherJeu()
 
         int i =0;
 
+         if (player->getLevel() == 2)
+            {
+                board.setWin(true);
+
+                level.setString("");
+                player->getAvatar()->win();
+                gameEnd.setString("You completed "+std::to_string(Player::level) +" levels and collected "+std::to_string(player->getNbPoints())+" beers");
+            }
+
+
 
         //permet de verifier si il y a collision entre le joueur et n'importe qu'elle voiture du jeu
         //si il y a collision on decremente la vie
@@ -183,16 +284,12 @@ int Rendu::afficherJeu()
                 if (player->getLife() == 0)
                 {
                     board.setLose(true);
-                    cars.clear();
-                    beers.clear();
+
 
                     player->getAvatar()->die();
                     gameEnd.setString("You completed "+std::to_string(Player::level) +" levels and collected "+std::to_string(player->getNbPoints())+" beers");
-
-
                 }
             }
-
             //on regarde si la voiture a commencé a droite ou a gauche de l'ecran,
             //ensuite on genere un random entre 0 et 1 pour savoir si elle va repartir a gauche ou a droite
             app.draw(v->getObstacle().getGraphicEntity());

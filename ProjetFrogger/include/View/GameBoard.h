@@ -14,8 +14,11 @@ class GameBoard
         RectangleShape loseForm;
         Texture textureLose;
 
+        RectangleShape winForm;
+        Texture textureWin;
 
         bool loose;
+        bool win;
 
     public:
         GameBoard();
@@ -23,7 +26,8 @@ class GameBoard
         RectangleShape getGraphicEntity();
         void setLose(bool lose);
         bool isLoose();
-
+        void setWin(bool win);
+        bool isWin();
 
 
 };

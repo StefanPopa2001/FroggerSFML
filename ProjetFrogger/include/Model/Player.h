@@ -27,6 +27,11 @@ class Player
         void looseLife();
         int getLevel()const;
 
+        void setLevel(int level);
+        void setLife(int life);
+        void setNbPoints(int points);
+
+
         inline static int level = 1;
 
         void winPoint();

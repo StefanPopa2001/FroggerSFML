@@ -10,7 +10,7 @@ using namespace std;
 
 int main()
 {
-     sf::RenderWindow app(sf::VideoMode(800, 600), "Frogger");
+     sf::RenderWindow app(sf::VideoMode(700, 900), "Frogger");
 
 
     MenuJeu menu(app.getSize().x,app.getSize().y);
@@ -44,7 +44,7 @@ int main()
                         std::cout<<"Play button pressed"<< std::endl;
                         app.close();
 
-                        r.afficherJeu();
+                        r.showGame();
                         break;
                     case 1:
                         std::cout<<"Option button pressed"<< std::endl;

@@ -18,15 +18,14 @@ class Avatar
         ContextMovingState* movingstate = new ContextMovingState;
 
     public:
-        void die(){
-            this->movingstate->setDeadState();
-        }
+        void die();
+        void win();
         Avatar();
         virtual ~Avatar();
         RectangleShape getGraphicEntity();
         void putAvatarStartPosition();
         void moveAvatar(Event e);
-
+        void replay();
 
 };
 
