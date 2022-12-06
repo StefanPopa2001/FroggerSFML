@@ -150,10 +150,15 @@ int Rendu::showGame()
             sf::RenderWindow renderwindow(sf::VideoMode(WINDOW_WIDTH,WINDOW_HEIGHT),"Replay");
             menuEndGame menuendGame(renderwindow.getSize().x,renderwindow.getSize().y);
             app.clear();
+
             while(renderwindow.isOpen())
             {
 
-
+             int nbr;
+             if(board.isWin())
+                    nbr=1;
+                else
+                    nbr=2;
                         // Process events
         sf::Event event;
         while (renderwindow.pollEvent(event))
@@ -177,6 +182,8 @@ int Rendu::showGame()
                     {
                     case 0:
                         std::cout<<"Play button pressed"<< std::endl;
+
+
 
                         renderwindow.close();
                         player->setLevel(1);
@@ -224,6 +231,8 @@ int Rendu::showGame()
 
                     }
                     renderwindow.clear();
+                    renderwindow.draw(board.getGraphicEntityReplay(nbr));
+                    renderwindow.draw(gameEnd);
                     menuendGame.draw(renderwindow);
                     renderwindow.display();
             }

@@ -24,6 +24,7 @@ class GameBoard
         GameBoard();
         virtual ~GameBoard();
         RectangleShape getGraphicEntity();
+        RectangleShape getGraphicEntityReplay(int nbr);
         void setLose(bool lose);
         bool isLoose();
         void setWin(bool win);

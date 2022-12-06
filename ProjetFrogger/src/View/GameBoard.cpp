@@ -26,12 +26,24 @@ GameBoard::~GameBoard()
     //dtor
 }
 
-RectangleShape GameBoard::getGraphicEntity()
+RectangleShape GameBoard::getGraphicEntityReplay(int nb)
 {
-    if(win)
+    if(nb==1)//win
         return winForm;
 
-    if (!loose)
+    if (nb==2)//lose
+        return loseForm;
+    else
+        return shapeBoard;
+
+};
+
+RectangleShape GameBoard::getGraphicEntity()
+{
+    if(win)//win
+        return winForm;
+
+    if (!loose)//lose
         return shapeBoard;
     else
         return loseForm;
