@@ -13,7 +13,7 @@
 
 using namespace sf;
 
-class Rendu
+class Render
 {
     private:
         vector<Car*> cars;
@@ -29,8 +29,8 @@ class Rendu
 
 
     public:
-        Rendu();
-        virtual ~Rendu();
+        Render();
+        virtual ~Render();
         int showGame();
 
         inline static int compteurPosY = 150;

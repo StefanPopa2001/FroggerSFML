@@ -1,6 +1,6 @@
 #ifndef MENUENDGAME_H
 #define MENUENDGAME_H
-#include "View/Rendu.h"
+#include "View/Render.h"
 #include <SFML/Graphics.hpp>
 
 class menuEndGame

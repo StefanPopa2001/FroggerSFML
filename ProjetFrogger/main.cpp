@@ -1,9 +1,9 @@
 #include <SFML/Graphics.hpp>
 #include <Model/Player.h>
 #include <View/GameBoard.h>
-#include <View/Rendu.h>
+#include <View/Render.h>
 #include <iostream>
-#include <View/MenuJeu.h>
+#include <View/GameMenu.h>
 
 using namespace std;
 
@@ -13,9 +13,9 @@ int main()
      sf::RenderWindow app(sf::VideoMode(700, 900), "Frogger");
 
 
-    MenuJeu menu(app.getSize().x,app.getSize().y);
+    GameMenu menu(app.getSize().x,app.getSize().y);
 
-    Rendu r;
+    Render r;
 
     while (app.isOpen())
     {

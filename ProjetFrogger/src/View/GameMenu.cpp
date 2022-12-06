@@ -1,8 +1,8 @@
-#include "MenuJeu.h"
+#include "GameMenu.h"
 #include <SFML/Graphics.hpp>
 using namespace sf;
 
-MenuJeu::MenuJeu(float width, float height)
+GameMenu::GameMenu(float width, float height)
 {
     if(!font.loadFromFile("Ressources/BubbleLemonDemoOutline.ttf"))
     {
@@ -17,7 +17,7 @@ MenuJeu::MenuJeu(float width, float height)
 
     boutons[0].setFont(font);
     boutons[0].setFillColor(sf::Color::White);
-    boutons[0].setString("Jouer");
+    boutons[0].setString("Play");
     boutons[0].setPosition(sf::Vector2f(width / 2 - 70, height / (4+1) * 2));
 
 
@@ -28,19 +28,19 @@ MenuJeu::MenuJeu(float width, float height)
 
     boutons[2].setFont(font);
     boutons[2].setFillColor(sf::Color::White);
-    boutons[2].setString("Quitter");
+    boutons[2].setString("Quit");
     boutons[2].setPosition(sf::Vector2f(width / 2 - 70, height / (4+1) * 4));
 
     selectedItemIndex = 0;
 }
 
-MenuJeu::~MenuJeu()
+GameMenu::~GameMenu()
 {
     //dtor
 }
 
 
-void MenuJeu::draw(sf::RenderWindow &window)
+void GameMenu::draw(sf::RenderWindow &window)
 {
 
     window.draw(titreJeu);
@@ -52,7 +52,7 @@ void MenuJeu::draw(sf::RenderWindow &window)
 
 }
 
-void MenuJeu::MoveUp(){
+void GameMenu::MoveUp(){
 
 if(selectedItemIndex - 1 >= 0){
     boutons[selectedItemIndex].setFillColor(sf::Color::White);
@@ -64,7 +64,7 @@ if(selectedItemIndex - 1 >= 0){
 
 }
 
-void MenuJeu::MoveDown(){
+void GameMenu::MoveDown(){
 
 if(selectedItemIndex + 1 < 3){
     boutons[selectedItemIndex].setFillColor(sf::Color::White);

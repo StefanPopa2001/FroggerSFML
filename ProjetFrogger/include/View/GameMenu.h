@@ -2,11 +2,11 @@
 #define MENUJEU_H
 #include <SFML/Graphics.hpp>
 
-class MenuJeu
+class GameMenu
 {
     public:
-        MenuJeu(float width, float height);
-        virtual ~MenuJeu();
+        GameMenu(float width, float height);
+        virtual ~GameMenu();
 
         void draw(sf::RenderWindow &window);
         void MoveUp();

@@ -1,4 +1,4 @@
-#include "View/Rendu.h"
+#include "View/Render.h"
 #include "View/GameBoard.h"
 #include "Model/Player.h"
 #include "Model/Car.h"
@@ -6,7 +6,7 @@
 
 #include <iostream>
 
-Rendu::Rendu()
+Render::Render()
 {
 
     //creation du joueur
@@ -74,25 +74,25 @@ Rendu::Rendu()
     {
         if (i%2==0)
         {
-            v->getObstacle().getGraphicEntity().setPosition(-100.f, Rendu::compteurPosY);
+            v->getObstacle().getGraphicEntity().setPosition(-100.f, Render::compteurPosY);
             v->getObstacle().setRight(false);
         }
         else
         {
-            v->getObstacle().getGraphicEntity().setPosition(700.f, Rendu::compteurPosY);
+            v->getObstacle().getGraphicEntity().setPosition(700.f, Render::compteurPosY);
             v->getObstacle().getGraphicEntity().scale(-1,1);
             v->getObstacle().setRight(true);
         }
-        Rendu::compteurPosY +=50;
-        if (Rendu::compteurPosY==350 || Rendu::compteurPosY==650)
+        Render::compteurPosY +=50;
+        if (Render::compteurPosY==350 || Render::compteurPosY==650)
         {
-            Rendu::compteurPosY+=50;
+            Render::compteurPosY+=50;
         }
         i++;
     }
 }
 
-Rendu::~Rendu()
+Render::~Render()
 {
 
     for(Car* v: cars){
@@ -107,7 +107,7 @@ Rendu::~Rendu()
     delete player;
 }
 
-int Rendu::showGame()
+int Render::showGame()
 {
     // Create the main window
     const unsigned WINDOW_WIDTH = 700;

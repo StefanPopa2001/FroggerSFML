@@ -2922,13 +2922,13 @@
 	"MenuJeu.h"
 	<SFML/Graphics.hpp>
 
-1670162307 source:c:\c++\froggersfml\projetfrogger\main.cpp
+1670345944 source:c:\c++\froggersfml\projetfrogger\main.cpp
 	<SFML/Graphics.hpp>
 	<Model/Player.h>
 	<View/GameBoard.h>
-	<View/Rendu.h>
+	<View/Render.h>
 	<iostream>
-	<View/MenuJeu.h>
+	<View/GameMenu.h>
 
 1669558100 c:\c++\froggersfml\projetfrogger\sfml-2.5.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -3343,7 +3343,7 @@
 	<string>
 	<View/Avatar.h>
 
-1669664384 c:\c++\froggersfml\projetfrogger\include\view\avatar.h
+1670342301 c:\c++\froggersfml\projetfrogger\include\view\avatar.h
 	<SFML/Graphics.hpp>
 	<MovingState.h>
 	<MovingStateAlive.h>
@@ -3363,7 +3363,7 @@
 1669558111 c:\c++\froggersfml\projetfrogger\include\view\movingstatewin.h
 	"MovingState.h"
 
-1669558111 c:\c++\froggersfml\projetfrogger\include\view\contextmovingstate.h
+1670342301 c:\c++\froggersfml\projetfrogger\include\view\contextmovingstate.h
 	<MovingState.h>
 	<MovingStateAlive.h>
 	<MovingStateDead.h>
@@ -3373,13 +3373,14 @@
 1669666163 c:\c++\froggersfml\projetfrogger\include\view\plateau.h
 	<SFML/Graphics.hpp>
 
-1670247809 c:\c++\froggersfml\projetfrogger\include\view\rendu.h
+1670342301 c:\c++\froggersfml\projetfrogger\include\view\rendu.h
 	<vector>
 	"Model/Car.h"
 	"Model/Player.h"
 	"View/GameBoard.h"
 	"View/Life.h"
 	"View/Beer.h"
+	"View/menuEndGame.h"
 	<SFML/Graphics.hpp>
 
 1670160317 c:\c++\froggersfml\projetfrogger\include\model\voiture.h
@@ -3407,7 +3408,7 @@
 	"Model/Voiture.h"
 	<SFML/Graphics.hpp>
 
-1670247836 source:c:\c++\froggersfml\projetfrogger\src\view\avatar.cpp
+1670342301 source:c:\c++\froggersfml\projetfrogger\src\view\avatar.cpp
 	"View/Avatar.h"
 	"View/Rendu.h"
 
@@ -3443,7 +3444,7 @@
 1669665158 source:c:\c++\froggersfml\projetfrogger\src\view\plateau.cpp
 	"View/Plateau.h"
 
-1670247857 source:c:\c++\froggersfml\projetfrogger\src\view\rendu.cpp
+1670342301 source:c:\c++\froggersfml\projetfrogger\src\view\rendu.cpp
 	"View/Rendu.h"
 	"View/GameBoard.h"
 	"Model/Player.h"
@@ -3451,17 +3452,17 @@
 	"View/Life.h"
 	<iostream>
 
-1669666552 source:c:\c++\froggersfml\projetfrogger\src\view\gameboard.cpp
+1670342301 source:c:\c++\froggersfml\projetfrogger\src\view\gameboard.cpp
 	"View/GameBoard.h"
 
-1669666505 c:\c++\froggersfml\projetfrogger\include\view\gameboard.h
+1670342301 c:\c++\froggersfml\projetfrogger\include\view\gameboard.h
 	<SFML/Graphics.hpp>
 
-1670247828 source:c:\c++\froggersfml\projetfrogger\src\model\player.cpp
+1670342301 source:c:\c++\froggersfml\projetfrogger\src\model\player.cpp
 	"Model/Player.h"
 	<SFML/Graphics.hpp>
 
-1670247718 c:\c++\froggersfml\projetfrogger\include\model\player.h
+1670342301 c:\c++\froggersfml\projetfrogger\include\model\player.h
 	<string>
 	<View/Avatar.h>
 
@@ -4010,4 +4011,36 @@
 1670333978 c:\users\florian\documents\dev\frogger\froggersfml\projetfrogger\include\view\menuendgame.h
 	"View/Rendu.h"
 	<SFML/Graphics.hpp>
+
+1670345832 c:\c++\froggersfml\projetfrogger\include\view\menuendgame.h
+	"View/Render.h"
+	<SFML/Graphics.hpp>
+
+1670344152 c:\c++\froggersfml\projetfrogger\include\view\gamemenu.h
+	<SFML/Graphics.hpp>
+
+1670343990 source:c:\c++\froggersfml\projetfrogger\src\view\gamemenu.cpp
+	"GameMenu.h"
+	<SFML/Graphics.hpp>
+
+1670342301 source:c:\c++\froggersfml\projetfrogger\src\view\menuendgame.cpp
+	"menuEndGame.h"
+
+1670345879 c:\c++\froggersfml\projetfrogger\include\view\render.h
+	<vector>
+	"Model/Car.h"
+	"Model/Player.h"
+	"View/GameBoard.h"
+	"View/Life.h"
+	"View/Beer.h"
+	"View/menuEndGame.h"
+	<SFML/Graphics.hpp>
+
+1670345931 source:c:\c++\froggersfml\projetfrogger\src\view\render.cpp
+	"View/Render.h"
+	"View/GameBoard.h"
+	"Model/Player.h"
+	"Model/Car.h"
+	"View/Life.h"
+	<iostream>
 
