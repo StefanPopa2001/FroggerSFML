@@ -1390,12 +1390,13 @@
 	"Model/Joueur.h"
 	"Model/Voiture.h"
 
-1668175531 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\main.cpp
+1670351350 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\main.cpp
 	<SFML/Graphics.hpp>
-	<Model/Joueur.h>
-	<View/Plateau.h>
-	<View/Rendu.h>
+	<Model/Player.h>
+	<View/GameBoard.h>
+	<View/Render.h>
 	<iostream>
+	<View/GameMenu.h>
 
 1668170275 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\sfml-2.5.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -1810,8 +1811,13 @@
 	<string>
 	<View/Avatar.h>
 
-1668170275 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\avatar.h
+1670351350 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\avatar.h
 	<SFML/Graphics.hpp>
+	<MovingState.h>
+	<MovingStateAlive.h>
+	<MovingStateDead.h>
+	<MovingStateWin.h>
+	<ContextMovingState.h>
 
 1669126479 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\plateau.h
 	<SFML/Graphics.hpp>
@@ -1838,14 +1844,14 @@
 	<Model/Voiture.h>
 	<View/Obstacle.h>
 
-1668178458 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\obstacle.h
+1670327498 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\obstacle.h
 	<SFML/Graphics.hpp>
 
-1669125914 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\view\avatar.cpp
+1670351350 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\view\avatar.cpp
 	"View/Avatar.h"
 	"View/Rendu.h"
 
-1668178453 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\view\obstacle.cpp
+1670327498 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\view\obstacle.cpp
 	"View/Obstacle.h"
 	<string>
 
@@ -4037,6 +4043,95 @@
 	<SFML/Graphics.hpp>
 
 1670345931 source:c:\c++\froggersfml\projetfrogger\src\view\render.cpp
+	"View/Render.h"
+	"View/GameBoard.h"
+	"Model/Player.h"
+	"Model/Car.h"
+	"View/Life.h"
+	<iostream>
+
+1670351350 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\model\player.h
+	<string>
+	<View/Avatar.h>
+
+1669546607 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\movingstate.h
+	<vector>
+
+1669546607 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\movingstatealive.h
+	"MovingState.h"
+
+1669546607 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\movingstatedead.h
+	"MovingState.h"
+
+1669546607 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\movingstatewin.h
+	"MovingState.h"
+
+1670351350 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\contextmovingstate.h
+	<MovingState.h>
+	<MovingStateAlive.h>
+	<MovingStateDead.h>
+	<MovingStateWin.h>
+	<vector>
+
+1670351350 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\gameboard.h
+	<SFML/Graphics.hpp>
+
+1670351350 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\render.h
+	<vector>
+	"Model/Car.h"
+	"Model/Player.h"
+	"View/GameBoard.h"
+	"View/Life.h"
+	"View/Beer.h"
+	"View/menuEndGame.h"
+	<SFML/Graphics.hpp>
+
+1670327498 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\model\car.h
+	<string>
+	<Model/Car.h>
+	<View/Obstacle.h>
+
+1670351350 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\menuendgame.h
+	"View/Render.h"
+	<SFML/Graphics.hpp>
+
+1670351350 c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\include\view\gamemenu.h
+	<SFML/Graphics.hpp>
+
+1670327498 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\model\car.cpp
+	"Model/Car.h"
+	<SFML/Graphics.hpp>
+
+1670351350 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\model\player.cpp
+	"Model/Player.h"
+	<SFML/Graphics.hpp>
+
+1669546607 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\view\contextmovingstate.cpp
+	"View/ContextMovingState.h"
+
+1670353496 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\view\gameboard.cpp
+	"View/GameBoard.h"
+
+1670353009 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\view\gamemenu.cpp
+	"GameMenu.h"
+	<SFML/Graphics.hpp>
+
+1670351350 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\view\menuendgame.cpp
+	"menuEndGame.h"
+
+1669546607 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\view\movingstate.cpp
+	"View/MovingState.h"
+
+1669546607 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\view\movingstatealive.cpp
+	"View/MovingStateAlive.h"
+
+1669546607 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\view\movingstatedead.cpp
+	"View/MovingStateDead.h"
+
+1670327498 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\view\movingstatewin.cpp
+	"View/MovingStateWin.h"
+
+1670351441 source:c:\users\mathi\downloads\projet c++\froggersfml\projetfrogger\src\view\render.cpp
 	"View/Render.h"
 	"View/GameBoard.h"
 	"Model/Player.h"

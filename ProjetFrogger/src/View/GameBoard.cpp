@@ -13,7 +13,7 @@ GameBoard::GameBoard()
     loseForm.setPosition(0.f, 0.f);
 
     winForm = RectangleShape({700,900}),
-    textureWin.loadFromFile("Ressources/victory_screen.jfif");
+    textureWin.loadFromFile("Ressources/victory_screen.png");
     winForm.setTexture(&textureWin);
     winForm.setPosition(0.f, 0.f);
 

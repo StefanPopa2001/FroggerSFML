@@ -98,12 +98,16 @@ Render::~Render()
     for(Car* v: cars){
         delete v;
     }
+    cars.clear();
+
     for(Life* l: lifes){
         delete l;
     }
     for(Beer* b: beers){
         delete b;
     }
+    beers.clear();
+
     delete player;
 }
 

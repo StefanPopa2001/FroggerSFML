@@ -20,7 +20,6 @@ GameMenu::GameMenu(float width, float height)
     boutons[0].setString("Play");
     boutons[0].setPosition(sf::Vector2f(width / 2 - 70, height / (4+1) * 2));
 
-
     boutons[1].setFont(font);
     boutons[1].setFillColor(sf::Color::White);
     boutons[1].setString("Options");
@@ -58,8 +57,6 @@ if(selectedItemIndex - 1 >= 0){
     boutons[selectedItemIndex].setFillColor(sf::Color::White);
     selectedItemIndex--;
     boutons[selectedItemIndex].setFillColor(sf::Color::Green);
-
-
 }
 
 }

@@ -1,5 +1,5 @@
 #include "View/Avatar.h"
-#include "View/Rendu.h"
+#include "View/Render.h"
 
 
 Avatar::Avatar()
@@ -12,7 +12,7 @@ Avatar::Avatar()
 
 Avatar::~Avatar()
 {
-    //dtor
+    delete movingstate;
 }
 
 RectangleShape Avatar::getGraphicEntity()
