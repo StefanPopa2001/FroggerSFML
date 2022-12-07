@@ -17,17 +17,19 @@ class ContextMovingState
         ContextMovingState():currentState(){setState();};
         virtual ~ContextMovingState();
 
+        //etat de base
         void setState(){
             this->currentState = new MovingStateAlive;
-
         }
 
+        //etat mort
         void setDeadState()
         {
             delete currentState;
             this->currentState = new MovingStateDead;
         }
 
+        //etat gagné
          void setWinState()
         {
             delete currentState;

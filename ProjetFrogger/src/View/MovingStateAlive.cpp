@@ -11,7 +11,7 @@ MovingStateAlive::~MovingStateAlive()
 {
     //dtor
 }
-
+//deplacement normal
  vector<float> MovingStateAlive::getLeftMouvement(){
 
     vector<float> v;

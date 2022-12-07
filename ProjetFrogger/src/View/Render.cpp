@@ -16,14 +16,12 @@ Render::Render()
     if (!font.loadFromFile("Ressources/font/arial.ttf"))
     {
         std::cout <<"ca marche pas"<<std::endl;
-
     }
-
     score.setString("");
     score.setFont(font);
     score.setCharacterSize(100);
     score.setFillColor(Color::Black);
-    score.setPosition(450.f, -20.f);
+    score.setPosition(400.f, -20.f);
 
     level.setString("");
     level.setFont(font);
@@ -34,11 +32,11 @@ Render::Render()
     gameEnd.setString("");
     gameEnd.setFont(font);
     gameEnd.setCharacterSize(20);
-    gameEnd.setFillColor(Color::Black);
-    gameEnd.setPosition(0.f, 450.f);
+    gameEnd.setFillColor(Color::White);
+    gameEnd.setPosition(100.f, 450.f);
 
     //placement des vies dans le vecteur en fonction du nombre de vie du joueur
-    for (int i=0;i<player->getLife();i++)
+    for (int i=0; i<player->getLife(); i++)
     {
         lifes.push_back(new Life);
     }
@@ -51,7 +49,7 @@ Render::Render()
     }
 
     //placement des bieres dans le vecteur
-    for (int i=0;i< 2;i++)
+    for (int i=0; i< 2; i++)
     {
         beers.push_back(new Beer);
     }
@@ -64,7 +62,7 @@ Render::Render()
     }
 
     //placement voiture vecteur
-    for (int i=0; i<12;i++)
+    for (int i=0; i<12; i++)
     {
         cars.push_back(new Car);
     }
@@ -95,15 +93,18 @@ Render::Render()
 Render::~Render()
 {
 
-    for(Car* v: cars){
+    for(Car* v: cars)
+    {
         delete v;
     }
     cars.clear();
 
-    for(Life* l: lifes){
+    for(Life* l: lifes)
+    {
         delete l;
     }
-    for(Beer* b: beers){
+    for(Beer* b: beers)
+    {
         delete b;
     }
     beers.clear();
@@ -122,8 +123,7 @@ int Render::showGame()
     app.setVerticalSyncEnabled(true);
     app.setFramerateLimit(60);
 
-
-	// Start the game loop
+    // Start the game loop
     while (app.isOpen())
     {
         // Process events
@@ -142,13 +142,17 @@ int Render::showGame()
             }
         }
         // Clear screen
-
         app.clear();
-        if(!board.isWin() && !board.isLoose()){
+
+        //tant que le joueur n'a ni perdu, ni gagné, on affiche les levels et les points obtenus
+        if(!board.isWin() && !board.isLoose())
+        {
             score.setString(std::to_string(player->getNbPoints()));
             level.setString(std::to_string(player->getLevel()));
         }
-        else{
+        //sinon on affiche le menu de fin de partie
+        else
+        {
             score.setString("");
             level.setString("");
             sf::RenderWindow renderwindow(sf::VideoMode(WINDOW_WIDTH,WINDOW_HEIGHT),"Replay");
@@ -157,93 +161,84 @@ int Render::showGame()
 
             while(renderwindow.isOpen())
             {
-
-             int nbr;
-             if(board.isWin())
+                int nbr;
+                if(board.isWin())
                     nbr=1;
                 else
                     nbr=2;
-                        // Process events
-        sf::Event event;
-        while (renderwindow.pollEvent(event))
-        {
-            switch(event.type)
-            {
-           case sf::Event::KeyReleased:
-                switch(event.key.code)
+                // Process events
+                sf::Event event;
+                while (renderwindow.pollEvent(event))
                 {
-                case sf::Keyboard::Up:
-                    menuendGame.MoveUp();
-                    break;
-                case sf::Keyboard::Down:
-                    menuendGame.MoveDown();
-                    break;
-
-                case sf::Keyboard::Return:
-
-
-                    switch(menuendGame.GetPressedItem())
+                    switch(event.type)
                     {
-                    case 0:
-                        std::cout<<"Play button pressed"<< std::endl;
-
-
-
-                        renderwindow.close();
-                        player->setLevel(1);
-                        player->setLife(3);
-                        lifes.clear();
-                        player->setNbPoints(0);
-                        board.setLose(false);
-                        board.setWin(false);
-                        player->getAvatar()->replay();
-                        for (int i=0;i<player->getLife();i++)
+                    case sf::Event::KeyReleased:
+                        switch(event.key.code)
                         {
-                            lifes.push_back(new Life);
-                        }
-                        Life::firstX=150;
-                        //placement graphique des vies
-                        for (Life* life:lifes)
-                        {
-                            life->getShape().setPosition(Life::firstX,0.f);
+                        case sf::Keyboard::Up:
+                            menuendGame.MoveUp();
+                            break;
+                        case sf::Keyboard::Down:
+                            menuendGame.MoveDown();
+                            break;
 
-                            Life::firstX +=50;
+                        case sf::Keyboard::Return:
+
+
+                            switch(menuendGame.GetPressedItem())
+                            {
+                            case 0:
+                                std::cout<<"Play button pressed"<< std::endl;
+
+                                //on reinitialise toutes les variables afin de relancer une partie
+                                renderwindow.close();
+                                player->setLevel(1);
+                                player->setLife(3);
+                                lifes.clear();
+                                player->setNbPoints(0);
+                                board.setLose(false);
+                                board.setWin(false);
+                                player->getAvatar()->replay();
+                                for (int i=0; i<player->getLife(); i++)
+                                {
+                                    lifes.push_back(new Life);
+                                }
+                                Life::firstX=150;
+                                //placement graphique des vies
+                                for (Life* life:lifes)
+                                {
+                                    life->getShape().setPosition(Life::firstX,0.f);
+
+                                    Life::firstX +=50;
+                                }
+                                app.clear();
+                                break;
+                            case 1:
+                                app.close();
+                                renderwindow.close();
+                                break;
+                            }
+                            break;
+                        default:
+                            break;
                         }
-                        app.clear();
-                        //r.showGame();
                         break;
-                    case 1:
-                        std::cout<<"Option button pressed"<< std::endl;
-                        app.close();
+
+                    case sf::Event::Closed:
                         renderwindow.close();
+                        app.close();
+                        break;
+                    default:
                         break;
                     }
                     break;
-                 default:
-                     break;
                 }
-                break;
-
-            case sf::Event::Closed:
-                renderwindow.close();
-                app.close();
-                break;
-            default:
-                break;
+                renderwindow.clear();
+                renderwindow.draw(board.getGraphicEntityReplay(nbr));
+                renderwindow.draw(gameEnd);
+                menuendGame.draw(renderwindow);
+                renderwindow.display();
             }
-            break;
-
-                    }
-                    renderwindow.clear();
-                    renderwindow.draw(board.getGraphicEntityReplay(nbr));
-                    renderwindow.draw(gameEnd);
-                    menuendGame.draw(renderwindow);
-                    renderwindow.display();
-            }
-
-
-
-
         }
         // Draw the sprite
         app.draw(board.getGraphicEntity());
@@ -257,30 +252,31 @@ int Render::showGame()
             app.draw(gameEnd);
         }
 
+        //redessine les vies
         for (Life* life:lifes)
         {
             app.draw(life->getShape());
         }
-
+        //redessine les bieres
         for (Beer* beer:beers)
         {
             app.draw(beer->getShape());
         }
 
+        //dessine le joueur
         app.draw(player->getAvatar()->getGraphicEntity());
 
         int i =0;
 
-         if (player->getLevel() == 2)
-            {
-                board.setWin(true);
-
-                level.setString("");
-                player->getAvatar()->win();
-                gameEnd.setString("You completed "+std::to_string(Player::level) +" levels and collected "+std::to_string(player->getNbPoints())+" beers");
-            }
-
-
+        //permet de verifier si le joueur a atteint le level 5
+        //si oui, on changer son etat et passe la variable win a true, ce qui demarrer le menu de fin
+        if (player->getLevel() == 5)
+        {
+            board.setWin(true);
+            level.setString("");
+            player->getAvatar()->win();
+            gameEnd.setString("You completed "+std::to_string(Player::level) +" levels and collected "+std::to_string(player->getNbPoints())+" beers");
+        }
 
         //permet de verifier si il y a collision entre le joueur et n'importe qu'elle voiture du jeu
         //si il y a collision on decremente la vie
@@ -297,7 +293,6 @@ int Render::showGame()
                 if (player->getLife() == 0)
                 {
                     board.setLose(true);
-
 
                     player->getAvatar()->die();
                     gameEnd.setString("You completed "+std::to_string(Player::level) +" levels and collected "+std::to_string(player->getNbPoints())+" beers");
@@ -352,6 +347,7 @@ int Render::showGame()
 
             if(playerBounds.intersects(beerbounds))
             {
+                //replace la biere a un endroit aleatoire
                 player->winPoint();
                 beer->getShape().setPosition(1000,1000);
                 beer->getShape().setPosition((rand()%14)*50,150+((rand())%12)*50);

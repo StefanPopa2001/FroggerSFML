@@ -6,7 +6,6 @@ menuEndGame::menuEndGame(float width, float height)
     {
 
     }
-
     buttons[0].setFont(font);
     buttons[0].setFillColor(sf::Color::White);
     buttons[0].setString("Replay");
@@ -55,8 +54,6 @@ if(selectedItemIndex - 1 >= 0){
     buttons[selectedItemIndex].setFillColor(sf::Color::White);
     selectedItemIndex--;
     buttons[selectedItemIndex].setFillColor(sf::Color::Green);
-
-
 }
 
 }

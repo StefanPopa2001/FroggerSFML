@@ -2,6 +2,7 @@
 
 GameBoard::GameBoard()
 {
+    //texture des differents backgrounds
     shapeBoard = RectangleShape({700,900}),
     textureBoard.loadFromFile("Ressources/Plateau.png");
     shapeBoard.setTexture(&textureBoard);
@@ -17,6 +18,7 @@ GameBoard::GameBoard()
     winForm.setTexture(&textureWin);
     winForm.setPosition(0.f, 0.f);
 
+    //sert a determiner si le joueur a gagné ou perdu afin de changer l'ecran
     loose = false;
     win = false;
 }

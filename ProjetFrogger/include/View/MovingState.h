@@ -8,6 +8,8 @@ class MovingState
 {
     private:
     public:
+
+        //permet de definir les methodes abstraites
         MovingState();
         virtual ~MovingState();
         virtual vector<float> getLeftMouvement() =0;

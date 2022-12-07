@@ -8,8 +8,14 @@ GameMenu::GameMenu(float width, float height)
     {
 
     }
-    titreJeu.setFont(font);
 
+    shapeMenu = RectangleShape({700,900}),
+    textureMenu.loadFromFile("Ressources/menu.png");
+    shapeMenu.setTexture(&textureMenu);
+    shapeMenu.setPosition(0.f, 0.f);
+
+    //entité graphique du menu principal
+    titreJeu.setFont(font);
     titreJeu.setFillColor(Color::Green);
     titreJeu.setString("Frogger");
     titreJeu.setCharacterSize(80);
@@ -42,6 +48,8 @@ GameMenu::~GameMenu()
 void GameMenu::draw(sf::RenderWindow &window)
 {
 
+window.draw(shapeMenu);
+//dessine le menu
     window.draw(titreJeu);
 
     for(int i=0;i<3;i++)
@@ -51,6 +59,7 @@ void GameMenu::draw(sf::RenderWindow &window)
 
 }
 
+//permet de se deplacer dans le menu
 void GameMenu::MoveUp(){
 
 if(selectedItemIndex - 1 >= 0){

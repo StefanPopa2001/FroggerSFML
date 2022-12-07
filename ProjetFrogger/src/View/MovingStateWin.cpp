@@ -12,6 +12,7 @@ MovingStateWin::~MovingStateWin()
     //dtor
 }
 
+//se deplace en faisant des grands bonds
 vector<float> MovingStateWin::getLeftMouvement(){
 
     vector<float> v;

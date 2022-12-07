@@ -40,12 +40,10 @@ void Avatar::putAvatarStartPosition()
     shapeAvatar.setPosition(300.f, 850.f);
 }
 
-//todo ==> la taille de l'écran est hard codée, il faudrait la prendre d'une autre manière
+//deplacement du joueur
 void Avatar::moveAvatar(Event e)
 {
-
-
-
+    //gauche
     if (e.key.code == sf::Keyboard::Left)
     {
 
@@ -57,6 +55,7 @@ void Avatar::moveAvatar(Event e)
             shapeAvatar.setPosition(0.f , shapeAvatar.getPosition().y);
     }
 
+    //droite
     else if (e.key.code == sf::Keyboard::Right)
     {
 
@@ -68,6 +67,7 @@ void Avatar::moveAvatar(Event e)
             shapeAvatar.setPosition(700 - shapeAvatar.getGlobalBounds().width, shapeAvatar.getPosition().y);
     }
 
+    //haut
     else if (e.key.code == sf::Keyboard::Up)
     {
 
@@ -82,10 +82,8 @@ void Avatar::moveAvatar(Event e)
             putAvatarStartPosition();
             Player::level++;
         }
-
-
     }
-
+    //bas
     else if (e.key.code == sf::Keyboard::Down)
     {
 
@@ -96,6 +94,5 @@ void Avatar::moveAvatar(Event e)
         if(shapeAvatar.getPosition().y + shapeAvatar.getGlobalBounds().height> 900)
             shapeAvatar.setPosition(shapeAvatar.getPosition().x , 900 - shapeAvatar.getGlobalBounds().height);
     }
-
 
 }

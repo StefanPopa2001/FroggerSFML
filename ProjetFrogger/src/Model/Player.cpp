@@ -1,6 +1,7 @@
 #include "Model/Player.h"
 #include <SFML/Graphics.hpp>
 
+//le joueur possede un avatar, si le jouer meurt, l'avatar aussi
 Player::Player(int score,int life, int nbPoints):score(score),life(life),nbPoints(nbPoints)
 {
     Player::avatar = new Avatar();
@@ -12,7 +13,6 @@ Player::~Player()
 }
 
 
-
 void Player::upScore(int score)
 {
     Player::score+=score;
@@ -22,8 +22,6 @@ string Player::str()
 {
     return "Score : "+to_string(score)+"\t Vies : "+to_string(life);
 }
-
-
 
 
 Avatar* Player::getAvatar()

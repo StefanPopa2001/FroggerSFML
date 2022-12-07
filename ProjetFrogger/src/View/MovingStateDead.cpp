@@ -11,7 +11,7 @@ MovingStateDead::~MovingStateDead()
 {
     //dtor
 }
-
+//se deplace plus car mort
 vector<float> MovingStateDead::getLeftMouvement(){
 
     vector<float> v;
